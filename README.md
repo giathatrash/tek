@@ -1,9 +1,10 @@
 
 # Tek.js
 
-> text writer with many options, using pure javascript
-> **author:** [@giath_atrash](https://instagram.com/giath_atrash)
+> text writer with many options, using pure javascript<br>
+> **author:** [@giath_atrash](https://instagram.com/giath_atrash)<br>
 > **© copyright:** 2022 - 2023
+---
 ### USAGE :
 *first we need to define the class*
 ```javascript
@@ -32,11 +33,10 @@ or you can make it as array when adding new element **like** :
 ```javascript
 tek.el('.element'. ["Hello", "World"]);
 ```
-
-
+---
 ### RUN :
-> to run the writer you need the item_id
-> you can get it affter adding new element
+> to run the writer you need the item_id<br>
+> you can get it affter adding new element<br>
 > now we can run using **run()** method with **item_id** as argument
 ```javascript
 tek.el('.element'. ["Hello", "World"])
@@ -44,7 +44,7 @@ tek.el('.element'. ["Hello", "World"])
 	tek.run(item_id);
 });
 ```
-> **run()** method is asynchronous  too,
+> **run()** method is asynchronous  too,<br>
 > but what we can do with it ??
 ```javascript
 tek.el('.element'. ["Hello", "World"])
@@ -58,8 +58,8 @@ tek.el('.element'. ["Hello", "World"])
 });
 ```
 what if we have 999 item ??
-> how we can run all of it
-> using **getAll()** method
+> how we can run all of it<br>
+> using **getAll()** method<br>
 > this method is asynchronous  too
 ```javascript
 tek.getAll(items => {
@@ -68,24 +68,89 @@ tek.getAll(items => {
 	}
 });
 ```
+---
+### ITEM OPTIONS :
+```javascript
+	tek.el('.element', [...words], {
+		colors: [], // object
+		colorMode: "convert", // string
+		delay: 1500, // number
+		writeSpeed: 100, // number
+		hideMode: "backspace", // string
+		loop: true, // boolean
+	});
+```
+**colors** :
+> defualt: []<br>
+> type: object<br>
+> + #hex<br>
+> + rgb()<br>
+> + hsl()<br>
+> + colorName
+
+> **example** :
+```javascript
+colors: ["red", "#f0f", "rgb(0,0,0)", "hsl(0deg 100% 200%)"],
+```
+
+**colorMode** :
+> **defualt**: convert<br>
+> **type**: string<br>
+> + blink<br>
+> + fade => recommended<br>
+> + convert
+
+**delay** :
+> **defulat** : 1500<br>
+> **type**: number<br>
+> how much time need to wait for start removing the word
+
+**writeSpeed** :
+> **defualt**: 100<br>
+> **type**: number<br>
+> words write and remove speed
+
+**hideMode** :
+> **defualt**: backspace<br>
+> **type**: string<br>
+> + fadeOut<br>
+> + backspace
+
+**loop** :
+> **defualt**: true<br>
+> **type**: boolean
+
+---
+
 ### METHODS :
 
 **el()** :
-> add new element to class
-> @param {string} cssSelector
-> @param {object} words - can be blank if **[data-words]** exits
-> @param {object} options
+> add new element to class<br>
+> @param {string} cssSelector<br>
+> @param {object} words - can be blank if **[data-words]** exits<br>
+> @param {object} options<br>
 > @return asyn function
 
 **run()** :
-> start writing
-> @param {string} item_id
+> start writing<br>
+> @param {string} item_id<br>
+> @return asyn function
+
+**getAll()** :
+> get all items<br>
 > @return asyn function
 
 **stop()** :
-> stop writing and looping
-> @param {string} item_id
+> stop writing and looping<br>
+> @param {string} item_id<br>
 > @return asyn function
 
 **delete()** :
-> delete item from class for no running it again
+> delete item from class for no running it again<br>
+> @param {string} item_id<br>
+> @return asyn function
+
+**info()** :
+> get item info and options<br>
+> @param  {string}  item_id<br>
+> @return asyn function
