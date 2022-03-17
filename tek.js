@@ -199,7 +199,7 @@ class Tek {
     static #colorModes = Object.freeze(["convert", "blink", "fade"]);
     static #hideModes = Object.freeze(["backspace", "fadeOut"]);
     constructor(options = []) {
-        this.separator = options.separator ?? ".";
+        this.separator = options.separator ?? ",,";
         this.animationSpeed = options.animationSpeed ?? 50;
         this.#items = [];
         this.#intervals = {};
@@ -218,7 +218,7 @@ class Tek {
     el(selector, words, options = []) {
         return new Promise((resolve, reject) => {
             options.colors = options.colors || [];
-            options.colorMode = options.colorMode || "convert"; // [index, blink, fade]
+            options.colorMode = options.colorMode || "convert"; // [convert, blink, fade]
             if (!Tek.#colorModes.includes(options.colorMode)) { throw `color mode [${options.colorMode}] not supported!.` }
             options.hideMode = options.hideMode || "backspace" // [backspace, fadeOut]
             if (!Tek.#hideModes.includes(options.hideMode)) { throw `write mode [${options.hideMode}] not supported!.` }
@@ -237,7 +237,8 @@ class Tek {
                 elements: elements,
                 words: words,
                 options: options,
-                wordIndex: 0
+                wordIndex: 0,
+                run: () => { this.run(id) }
             }
             if (options.colors.length !== 0) {
                 this.#items[id].options.currentColorNumber = 0;
@@ -246,7 +247,6 @@ class Tek {
             }
             resolve(id);
             reject();
-            return id;
         })
     }
 
@@ -414,5 +414,14 @@ class Tek {
                 resolve(this.#items[item_id]);
             } else { reject(`item{${item_id}} not found!.`) }
         });
+    }
+
+    /**
+     * Get all items
+     */
+    getAll(){
+        return new Promise(resolve => {
+            resolve(this.#items);
+        })
     }
 }

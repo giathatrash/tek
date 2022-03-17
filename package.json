@@ -1,0 +1,18 @@
+{
+  "name": "tek.js",
+  "version": "1.0.0",
+  "description": "text writer with many options, using pure javascript",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giathatrash/tek.git"
+  },
+  "keywords": [
+    "tek.js"
+  ],
+  "author": "giath atrash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giathatrash/tek/issues"
+  },
+  "homepage": "https://github.com/giathatrash/tek#readme"
+}
