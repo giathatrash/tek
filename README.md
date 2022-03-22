@@ -31,15 +31,15 @@ you can add words using html attribute **like** :
 or you can make it as array when adding new element **like** :
 > this method is asynchronous function
 ```javascript
-tek.el('.element'. ["Hello", "World"]);
+tek.el('.element', ["Hello", "World"]);
 ```
 ---
 ### RUN :
 > to run the writer you need the item_id<br>
-> you can get it affter adding new element<br>
+> you can get it after adding new element<br>
 > now we can run using **run()** method with **item_id** as argument
 ```javascript
-tek.el('.element'. ["Hello", "World"])
+tek.el('.element', ["Hello", "World"])
 .then(item_id => {
 	tek.run(item_id);
 });
@@ -47,7 +47,7 @@ tek.el('.element'. ["Hello", "World"])
 > **run()** method is asynchronous  too,<br>
 > but what we can do with it ??
 ```javascript
-tek.el('.element'. ["Hello", "World"])
+tek.el('.element', ["Hello", "World"])
 .then(item_id => {
 	tek.run(item_id).then(() => {
 		// last word of array just finshed
@@ -71,14 +71,14 @@ tek.getAll(items => {
 ---
 ### ITEM OPTIONS :
 ```javascript
-	tek.el('.element', [...words], {
-		colors: [], // object
-		colorMode: "convert", // string
-		delay: 1500, // number
-		writeSpeed: 100, // number
-		hideMode: "backspace", // string
-		loop: true, // boolean
-	});
+tek.el('.element', [...words], {
+	colors: [], // object
+	colorMode: "convert", // string
+	delay: 1500, // number
+	writeSpeed: 100, // number
+	hideMode: "backspace", // string
+	loop: true, // boolean
+});
 ```
 **colors** :
 > defualt: []<br>
